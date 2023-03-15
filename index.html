@@ -66,6 +66,7 @@
                     if (role != "fighter" && ays != "defender" && ays != "magician") {
                         redo_question()
                         ays = await input("You know that if you complete your training you have to, and I mean have to unless you to die. So I ask again do you want to? (yes/no) ")
+                    }
 
                     if (role == "defender") {
                         print()
@@ -192,11 +193,12 @@
                                     }
                                 }
 
-                             if (where == "hotel") {
-                                 print()
-                                 print("you are in the hotel and there is a shooting you save someones life by jumping in front of the bullet")
-                                 print("(end)")
-                                }
+                            }
+
+                            if (where == "hotel") {
+                                print()
+                                print("you are in the hotel and there is a shooting you save someones life by jumping in front of the bullet")
+                                print("(end)")
                             }
                         }
 
