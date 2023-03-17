@@ -15,7 +15,7 @@
             print();
             role = await ask(
                 'First thing first, what would you like to be',
-                ['fighter', 'defender' 'magician'],
+                ['fighter', 'defender', 'magician'],
             );
 
             //             if (role != 'fighter' && ays != 'defender' && ays != 'magician') {
