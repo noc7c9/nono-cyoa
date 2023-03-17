@@ -13,8 +13,9 @@
 
         if (ays == 'yes') {
             print();
-            role = await input(
-                'First thing first, what would you like to be, (fighter/defender/magician) ',
+            role = await ask(
+                'First thing first, what would you like to be',
+                ['fighter', 'defender' 'magician'],
             );
 
             //             if (role != 'fighter' && ays != 'defender' && ays != 'magician') {
@@ -26,9 +27,7 @@
 
             if (role == 'defender') {
                 print();
-                print(
-                    'it is a boring job and you defend the base until you get killed',
-                );
+                print('it is a boring job and you defend the base until you get killed');
                 print('(end)');
             }
 
