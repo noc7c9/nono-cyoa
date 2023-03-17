@@ -1,20 +1,15 @@
 (async () => {
-    hello = await input(
-        'Hello I am your master, you want to start your training right? (yes/no) ',
+    hello = await ask(
+        'Hello I am your master, you want to start your training right?',
+        ['yes', 'no'],
     );
 
     if (hello == 'yes') {
         print();
-        ays = await input(
-            'You know that if you complete your training you have to, and I mean have to unless you to die. So I ask again do you want to? (yes/no) ',
+        ays = await ask(
+            'You know that if you complete your training you have to, and I mean have to unless you to die. So I ask again do you want to?',
+            ['yes', 'no'],
         );
-
-        if (ays != 'yes' && ays != 'no') {
-            redo_question();
-            ays = await input(
-                'You know that if you complete your training you have to, and I mean have to unless you to die. So I ask again do you want to? (yes/no) ',
-            );
-        }
 
         if (ays == 'yes') {
             print();
@@ -22,12 +17,12 @@
                 'First thing first, what would you like to be, (fighter/defender/magician) ',
             );
 
-            if (role != 'fighter' && ays != 'defender' && ays != 'magician') {
-                redo_question();
-                ays = await input(
-                    'You know that if you complete your training you have to, and I mean have to unless you to die. So I ask again do you want to? (yes/no) ',
-                );
-            }
+            //             if (role != 'fighter' && ays != 'defender' && ays != 'magician') {
+            //                 redo_question();
+            //                 ays = await input(
+            //                     'You know that if you complete your training you have to, and I mean have to unless you to die. So I ask again do you want to? (yes/no) ',
+            //                 );
+            //             }
 
             if (role == 'defender') {
                 print();
