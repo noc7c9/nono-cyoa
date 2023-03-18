@@ -244,6 +244,10 @@
                     print('CONGRATS!!!');
                     print('you win');
                     print('(end)');
+                    
+                if (win == 'no') {
+                    print();
+                    print('More story to come here!);
                 }
             }
         }
