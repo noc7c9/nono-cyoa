@@ -1,28 +1,51 @@
 const KEY_ENTER = 13;
 
-const outElem = document.getElementById('output');
-const inElem = document.getElementById('input');
-const button = document.getElementById('button');
+const $output = document.querySelector('.output');
+const $input = document.querySelector('.input > input');
+const $button = document.querySelector('.input > button');
+const $error = document.querySelector('.error');
 
-inElem.addEventListener('keyup', function (event) {
+$input.addEventListener('keyup', function (event) {
     if (event.keyCode === KEY_ENTER) {
         event.preventDefault();
-        document.getElementById('button').click();
+        $button.click();
     }
 });
 
-function print(text = '') {
-    outElem.innerHTML += text + '<br>';
+function print(text = '', klass = null) {
+    const p = document.createElement('p');
+    text = text.trim();
+    p.innerHTML = text == '' ? '&nbsp;' : text;
+    if (klass !== null) {
+        p.classList.add(klass);
+    }
+
+    $output.appendChild(p);
+
+    // scroll to the bottom
+    $output.scrollTop = $output.scrollHeight;
 }
 
-async function input(p) {
-    print(p);
+async function input(p = null) {
+    if (p !== null) {
+        print(p);
+    }
     return new Promise((resolve) => {
-        button.onclick = () => {
-            resolve(inElem.value);
-            inElem.value = '';
+        $button.onclick = () => {
+            const value = $input.value.trim();
+
+            // Ignore empty input
+            if (value === '') {
+                return;
+            }
+
+            resolve($input.value);
         };
     });
+}
+
+function clearInput() {
+    $input.value = '';
 }
 
 // This function will repeatedly ask the user a question until they give a valid answer
@@ -50,20 +73,41 @@ async function ask(question, answers) {
         ? answers
         : Object.keys(answers);
 
-    // Keep asking the question until the user gives a valid answer
-    while (true) {
-        // Ask the question
-        const answer = await input(prompt);
+    // Ask the question (happens only once)
+    print(prompt);
 
-        // Check if the answer is valid
+    // Keep reading user input until the a valid answer is given
+    while (true) {
+        // Read user input
+        const answer = await input();
+
+        // Check if the input is a valid answer
         if (validAnswers.includes(answer)) {
-            // If the answer is valid return it
+            // Hide the error message (if it is visible)
+            $error.classList.add('hidden');
+
+            // Print the answer
+            print(answer, 'input');
+
+            // Clear the input
+            clearInput();
+
+            // Return the answer
             return answer;
         } else {
-            // If the answer is not valid print an error message and ask again
-            print();
-            print('sorry that is not a valid answer i will ask you again');
-            print();
+            // If the answer is not valid show an error message and ask again
+            $error.innerHTML = `Error: Invalid answer, expected one of: ${validAnswers.join(
+                ', ',
+            )}`;
+
+            // Reset the animation
+            $error.classList.remove('anim-x-shake');
+            // src: https://css-tricks.com/restart-css-animation/#aa-update-another-javascript-method-to-restart-a-css-animation
+            void $error.offsetWidth; // trigger a DOM reflow
+            $error.classList.add('anim-x-shake');
+
+            // Show the error message
+            $error.classList.remove('hidden');
         }
     }
 }

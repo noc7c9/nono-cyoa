@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <style type="text/css">
-            body {
-                background-color: black;
-                color: white;
-            }
-        </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Medieval (CYOA) by Random Video Games & More</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+            integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <div>
-            Input:
-            <input id="input" type="text" />
-            <button id="button">Submit</button>
+        <div class="root">
+            <div class="output styled-scrollbars"></div>
+
+            <div class="error hidden anim-x-shake">
+                Sorry, I didn't understand that.
+            </div>
+
+            <div class="input">
+                <input type="text" placeholder="Type here to respond" />
+                <button>Submit</button>
+            </div>
         </div>
-        <br />
-        <div id="output"></div>
 
         <script src="lib.js"></script>
         <script src="story.js"></script>
