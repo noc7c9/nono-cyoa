@@ -257,7 +257,7 @@
 
     if (hello == 'no') {
         print();
-        print('Alright, now be on your way');
+        print('Alright, now be on your way.');
         print('(end)');
     }
 })();
