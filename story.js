@@ -244,6 +244,7 @@
                     print('CONGRATS!!!');
                     print('you win');
                     print('(end)');
+                }
                     
                 if (win == 'no') {
                     print();
