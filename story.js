@@ -224,7 +224,7 @@
                 print();
                 print('Ok, you get one week of traning.');
                 print();
-                win = ask(
+                win = await ask(
                     'The master calls you to his office do you go?',
                     ['yes', 'no'],
                 );
