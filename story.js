@@ -231,9 +231,7 @@
 
                 if (win == 'yes') {
                     print();
-                    print(
-                        'You go to the office. The master tells you, "you must die, if ot you will become to powerful!!!"',
-                    );
+                    print('You go to the office. The master tells you, "you must die, if ot you will become to powerful!!!"');
                     print('You teleport away.');
                     print();
                     print('(2 years later)');
