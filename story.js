@@ -132,7 +132,7 @@
                                                 'You are in Megalotropolis you set up camp.',
                                             );
                                             coin = await ask(
-                                                'You find 2 coins on the ground, one is facing heads and one is facing tails, which one do you want to pick up?
+                                                'You find 2 coins on the ground, one is facing heads and one is facing tails, which one do you want to pick up?',
                                                 ['heads', 'tails'],
                                             );
 
@@ -226,7 +226,7 @@
                 print();
                 win = ask(
                     'The master calls you to his office do you go?',
-                    {'yes' 'no'],
+                    ['yes', 'no'],
                 );
 
                 if (win == 'yes') {
