@@ -248,7 +248,7 @@
                     
                 if (win == 'no') {
                     print();
-                    print('More story to come here!);
+                    print('More story to come here!');
                 }
             }
         }
